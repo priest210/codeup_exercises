@@ -16,7 +16,7 @@
 
 
 
-$guess = rand (1,100);
+$guess = mt_rand (1,100);
 
 
 fwrite(STDOUT, "Guess the number between 1 and 100. ");
