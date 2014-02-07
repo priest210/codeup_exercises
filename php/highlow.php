@@ -17,10 +17,10 @@
 
 
 $guess = mt_rand (1,100);
-
+$guess_count = 0;
 
 fwrite(STDOUT, "Guess the number between 1 and 100. ");
-
+$guess_count++;
 $answer = fgets(STDIN);
 
 while ($answer != $guess){
@@ -36,9 +36,10 @@ while ($answer != $guess){
 	}
 	
 	$answer = fgets(STDIN);
+	$guess_count++;
 }
 
-echo "GOOD GUESS ";
+echo "GOOD GUESS. It took you $guess_count guess's";
 exit(0);
 ?>
 
