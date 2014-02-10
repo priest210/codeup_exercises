@@ -23,12 +23,12 @@ $books = array(
 );
 //Construct a loop that iterates through each book and 
 
-foreach ($books as $key => $book) {
+foreach ($books as $book) { 
 	foreach ($book as $key => $value) {
-	echo "The book's $key is $value \n";
-
-	}
+		echo "Book's $key is $value \n";
+	}	
 }
+
 
 //then each book's keys and values. 
 
