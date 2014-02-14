@@ -28,6 +28,15 @@ echo "\$nothing" . variable_check($nothing)  . "\n";
 
 echo "\$something" . variable_check($something)  . "\n";
 
+$red = serialize($array) . "\n";
+
+echo $red;
+
+var_dump (unserialize($red));
+
+
+
+
 // TEST: If var $nothing is set, display '$nothing is SET'
 
 // TEST: If var $nothing is empty, display '$nothing is EMPTY'
