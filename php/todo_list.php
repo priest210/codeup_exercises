@@ -46,63 +46,62 @@ function get_input($upper = FALSE) {
   
     //Function to call sorts
 
-function sort_menu($sort_type) {
+function sort_menu($items) {
 
         echo "Choose sort type: (A)-Z, (Z)-A .\n";
 
-        $input2 == strtoupper(trim(fgets(STDIN)));
+        $input2 = strtoupper(trim(fgets(STDIN)));
 
         if ($input2 ==  'A'){
             
             asort($items);         
         }   
 
-                    // (Z)-A
-
         else  {
   
             arsort($items);
         }
 
-        return $input2;
+        return $items;
         
 }
 
-
-        // Needs to echo When sort menu is opened, show the following options: 
-        // (A)-Z, (Z)-A, (O)rder entered, (R)everse order entered
-
-
-        // When a sort type is selected, 
-        // order the TODO list accordingly and display the results.
 
 // Loop!
 
 do {
     
     // Show the menu options
-    echo 'Please choose option: (N)ew item, (R)emove item, (Q)uit : ';
+    echo 'Please choose option: (N)ew item, (S)ort, (R)emove item, (Q)uit : ';
 
     $input = strtoupper(trim(fgets(STDIN)));
     
     // Check for actionable input
     if ($input == 'N') {
+        
         echo 'Enter item: ';
 
         $items[] = trim(fgets(STDIN));
     } 
-    // When I add [E]dit existing item option
-    // Add [E]dit to menu above
-    // elseif ($input == 'E'){
-    //     echo 'Enter item to edit: ';
-    //     $key = trim(fgets(STDIN));
+    
+    
+    elseif ($input == 'S') {
+
+       sort_menu ($items);
+
+       list_items ($items);
 
 
+    }
+    
     // array_values is how it reorders array
 
     elseif ($input == 'R') {
         
         // *** Need to List items for user to choose from *****
+        
+        $items = array_values($items);
+
         print_r ($items);
 
         echo 'Enter item number to remove: ';
