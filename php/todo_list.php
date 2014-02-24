@@ -29,7 +29,7 @@ function get_input($upper = FALSE) {
             // Get STDIN, strip whitespace and newlines
     $input = trim(fgets(STDIN));
     
-    if ($input === TRUE) {
+    if ($upper === TRUE) {
         
             // Convert to uppercase if $upper is true
         return strtoupper($input);        
@@ -81,14 +81,33 @@ do {
     // Show the menu options
     echo 'Please choose option: (N)ew item, (S)ort, (R)emove item, (Q)uit : ';
 
-    $input = strtoupper(trim(fgets(STDIN)));
+    $input = get_input(TRUE);
     
     // Check for actionable input
     if ($input == 'N') {
         
         echo 'Enter item: ';
 
-        $items[] = trim(fgets(STDIN));
+        $new_item = get_input();
+
+        // ask user where to put item
+
+        echo 'Place new item at (B)eginning or (E)nd of list? ';
+
+        // get user's answer
+
+        $where = get_input(TRUE);
+
+        // array_push/array_unshift new_item
+
+        if ($where == 'B') {
+
+            array_unshift($items, $new_item);
+        }
+
+        else {
+            array_push($items, $new_item);
+        }
     } 
     
     
@@ -118,6 +137,17 @@ do {
         unset($items[$key -1]);
         
         $items = array_values($items);
+    }
+
+    elseif ($input == 'F') {
+
+        $remove_front = array_shift($items);
+
+    }
+
+    elseif ($input == 'L') {
+        
+        $remove_end = array_pop($items);
     }
 
 
