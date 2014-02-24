@@ -5,13 +5,35 @@ $physicists_string = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn Mal
 
 $physicists_array = explode(', ', $physicists_string);
 
+// var_dump($physicists_array);
+
 print_r($physicists_array);
 
 	
 
-	// function array_sentence($cut, $paste) {
+	function array_sentence($physicists, $sort = FALSE) {
+
 		
-	// 	last_item = array_pop($physicists_string);
+			$physicists_array = explode(', ', $physicists);
+
+			if ($sort == TRUE) {
+
+				sort($physicists_array);
+			}
+
+			$last_person = array_pop($physicists_array);
+
+			return implode(', ', $physicists_array) . ", and $last_person";
+
+	}
+
+	$physicists_list = array_sentence($physicists_string, TRUE);
+
+	echo "Some of the most famous fictional theoretical physicists are {$physicists_list}. \n";
 
 
-	// }
+
+
+
+
+
