@@ -37,12 +37,12 @@ function look_for($name, $array) {
 	// else {
 	// 		echo 'False' ." \n";
 	
-	 var_dump ($found);
+	 return $found;
 	
 }
 
 
-look_for('Tina', $names);
+var_dump (look_for('Tina', $names));
 
 
 // Create a function to compare 2 arrays that returns the number of values in common between the arrays.
@@ -52,14 +52,31 @@ look_for('Tina', $names);
 
 function compare_arrays($array1, $array2){
 
+	$count = 0;
 
-	$difference = array_diff($array1, $array2);
+	foreach ($array1 as $name) {
+		
+		if (look_for($name, $array2)) {
 
+			$count++;
+		}
 
-	var_dump($difference);
+	}
+	
+	return $count;
 }
 
-compare_arrays($names, $compare);
+
+var_dump(compare_arrays ($names, $compare));
+
+
+// 	$difference = array_diff($array1, $array2);
+
+
+// 	var_dump($difference);
+// }
+
+// compare_arrays($names, $compare);
 
 
 	
