@@ -23,23 +23,45 @@ $names = ['Tina', 'Dana', 'Mike', 'Amy', 'Adam'];
 
 $compare = ['Tina', 'Dean', 'Mel', 'Amy', 'Michael'];
 
-
-
 // Create a function that returns TRUE or FALSE if an array value is found. 
 // Search for Tina and Bob in $names. Make sure it works as expected.
 
 function look_for($name, $array) {
 
-	$found = array_search($name, $array);
+	$found = is_int(array_search($name, $array));
 
-	var_dump($found);
+	// if ($found === True) {
+	// 		echo 'True' ." \n";
+	// }
+
+	// else {
+	// 		echo 'False' ." \n";
+	
+	 var_dump ($found);
 	
 }
 
-// Create a function to compare 2 arrays that returns the number of values in common between the arrays. 
+
+look_for('Tina', $names);
+
+
+// Create a function to compare 2 arrays that returns the number of values in common between the arrays.
+
 // Use the 2 example arrays and make sure your solution uses array_search().
 
 
-look_for('Tina', $names);	
+function compare_arrays($array1, $array2){
+
+
+	$difference = array_diff($array1, $array2);
+
+
+	var_dump($difference);
+}
+
+compare_arrays($names, $compare);
+
+
+	
 
 
