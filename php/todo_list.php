@@ -68,6 +68,21 @@ function sort_menu(&$items) {
         
 }
 
+function read_file($filename) {
+
+        $handle = fopen($filename, "r");
+
+        $contents = fread($handle, filesize($filename));
+
+        $contents_array = explode("\n", $contents);
+
+        fclose($handle);
+
+        print_r($contents_array);
+
+
+}
+
 
 // Loop!
 
@@ -77,9 +92,12 @@ do {
     
     echo list_items ($items);
     
+    // Add a file menu option to the main menu in your TODO list app. 
+    // In this file menu create a (O)pen file option. 
+    // The user should be able to enter the path to a file to have it loaded.
 
     // Show the menu options
-    echo 'Please choose option: (N)ew item, (S)ort, (R)emove item, (Q)uit : ';
+    echo 'Please choose option: (N)ew item, (S)ort, (O)pen file, s(A)ve, (R)emove item, (Q)uit : ';
 
     $input = get_input(TRUE);
     
@@ -116,8 +134,27 @@ do {
        $sort_return = sort_menu ($items);
 
        // echo $sort_return;
+    }
 
+    elseif ($input == 'O') {
 
+        $filename = get_input();
+        
+        read_file($filename);
+
+        
+    }
+
+    elseif ($input == 'A') {
+
+        $filename = get_input();
+
+        //create call for function for #2
+
+        // create function at top to explode contents of file into array
+        // edit file, edit array, implode back to string and then save.
+
+        
     }
     
     // array_values is how it reorders array
